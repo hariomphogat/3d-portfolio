@@ -29,10 +29,10 @@ const words = [
 ];
 
 const counterItems = [
-  { value: 10, suffix: "+", label: "Completed Projects" },
-  { value: 1000, suffix: "+", label: "Hours of Practical Coding" },
-  { value: 20, suffix: "+", label: "Web Technologies Learned" },
-  { value: 100, suffix: "%", label: "Code Written with Passion" },
+  { id: 1, value: 10, suffix: "+", label: "Completed Projects" },
+  { id: 2, value: 1000, suffix: "+", label: "Hours of Practical Coding" },
+  { id: 3, value: 20, suffix: "+", label: "Web Technologies Learned" },
+  { id: 4, value: 100, suffix: "%", label: "Code Written with Passion" },
 ];
 
 const logoIconsList = [
@@ -145,44 +145,110 @@ const techStackIcons = [
   },
 ];
 
-const expCards = [
+// const eduCards = [
+//   {
+//     review:
+//       "Adrian brought creativity and technical expertise to the team, significantly improving our frontend performance. His work has been invaluable in delivering faster experiences.",
+//     imgPath: "/images/exp1.png",
+//     logoPath: "/images/logo1.png",
+//     title: "Frontend Developer",
+//     date: "January 2023 - Present",
+//     learnings: [
+//       "Developed and maintained user-facing features for the Hostinger website.",
+//       "Collaborated closely with UI/UX designers to ensure seamless user experiences.",
+//       "Optimized web applications for maximum speed and scalability.",
+//     ],
+//   },
+//   {
+//     review:
+//       "Adrian’s contributions to Docker's web applications have been outstanding. He approaches challenges with a problem-solving mindset.",
+//     imgPath: "/images/exp2.png",
+//     logoPath: "/images/logo2.png",
+//     title: "Full Stack Developer",
+//     date: "June 2020 - December 2023",
+//     learnings: [
+//       "Led the development of Docker's web applications, focusing on scalability.",
+//       "Worked with backend engineers to integrate APIs seamlessly with the frontend.",
+//       "Contributed to open-source projects that were used with the Docker ecosystem.",
+//     ],
+//   },
+//   {
+//     review:
+//       "Adrian’s work on Appwrite’s mobile app brought a high level of quality and efficiency. He delivered solutions that enhanced our mobile experience & meet our product goals.",
+//     imgPath: "/images/exp3.png",
+//     logoPath: "/images/logo3.png",
+//     title: "React Native Developer",
+//     date: "March 2019 - May 2020",
+//     learnings: [
+//       "Built cross-platform mobile apps using React Native, integrating with Appwrite's backend services.",
+//       "Improved app performance and user experience through code optimization and testing.",
+//       "Coordinated with the product team to implement features based on feedback.",
+//     ],
+//   },
+// ];
+const eduCards = [
   {
     review:
-      "Adrian brought creativity and technical expertise to the team, significantly improving our frontend performance. His work has been invaluable in delivering faster experiences.",
-    imgPath: "/images/exp1.png",
-    logoPath: "/images/logo1.png",
-    title: "Frontend Developer",
-    date: "January 2023 - Present",
-    responsibilities: [
-      "Developed and maintained user-facing features for the Hostinger website.",
-      "Collaborated closely with UI/UX designers to ensure seamless user experiences.",
-      "Optimized web applications for maximum speed and scalability.",
+      "Pursuing this advanced degree pushed my technical and analytical skills to new heights. It has been a transformative journey into modern AI and big data solutions.",
+    imgPath: "/images/edu_msc.png",
+    logoPath: "/images/logo_mdu.png",
+    title: "MSc. Computer Science (Data Science & Machine Learning)",
+    date: "July 2024 – June 2026 (Expected)",
+    address: "Maharshi Dayanand University, Rohtak, India",
+    learnings: [
+      "Engineered data analysis workflows using Python and R.",
+      "Designed and implemented advanced ML and deep learning models.",
+      "Developed scalable big data pipelines with Hadoop and Spark.",
+      "Applied computer vision and image processing with OpenCV.",
+      "Built full-stack web apps and explored advanced AI techniques.",
     ],
   },
   {
     review:
-      "Adrian’s contributions to Docker's web applications have been outstanding. He approaches challenges with a problem-solving mindset.",
-    imgPath: "/images/exp2.png",
-    logoPath: "/images/logo2.png",
-    title: "Full Stack Developer",
-    date: "June 2020 - December 2023",
-    responsibilities: [
-      "Led the development of Docker's web applications, focusing on scalability.",
-      "Worked with backend engineers to integrate APIs seamlessly with the frontend.",
-      "Contributed to open-source projects that were used with the Docker ecosystem.",
+      "Despite visa setbacks, I proactively completed initial coursework and led impactful projects before withdrawing prior to first semester exams. This experience strengthened my skills in mobile and web development, showcased leadership in team projects, and enhanced my adaptability to new tools and frameworks.",
+    imgPath: "/images/conestoga.png",
+    logoPath: "/images/conestoga.png",
+    title: "Mobile Solutions Development (Coursework)",
+    date: "May 2022",
+    address: "Conestoga College, Waterloo, Canada (Online)",
+    learnings: [
+      "Developed a ticket booking system in C# as an individual project.",
+      "Led a team to design a music app prototype in Adobe XD.",
+      "Led and contributed to the iOS app 'Explore Waterloo' with search and GitHub version control.",
+      "Engineered web apps with modern UI/UX and accessibility standards.",
+      "Strengthened problem-solving, debugging, and team collaboration skills.",
     ],
   },
   {
     review:
-      "Adrian’s work on Appwrite’s mobile app brought a high level of quality and efficiency. He delivered solutions that enhanced our mobile experience & meet our product goals.",
-    imgPath: "/images/exp3.png",
-    logoPath: "/images/logo3.png",
-    title: "React Native Developer",
-    date: "March 2019 - May 2020",
-    responsibilities: [
-      "Built cross-platform mobile apps using React Native, integrating with Appwrite's backend services.",
-      "Improved app performance and user experience through code optimization and testing.",
-      "Coordinated with the product team to implement features based on feedback.",
+      "This program refined my practical understanding of system-level programming and database management, preparing me for real-world software challenges.",
+    imgPath: "/images/edu_pgdca.png",
+    logoPath: "/images/logo_citc.png",
+    title: "PGDCA",
+    date: "March 2021 – March 2022",
+    address: "CITC – The Hub of IT, Charkhi Dadri, India",
+    learnings: [
+      "Developed skills in OS concepts and computer architecture.",
+      "Engineered efficient data structures and database systems.",
+      "Designed modular, optimized programs in C and C++.",
+      "Strengthened software development best practices.",
+      "Reinforced theoretical learning through hands-on coding.",
+    ],
+  },
+  {
+    review:
+      "My undergraduate journey laid a solid foundation in core computer science principles and ignited my passion for solving complex problems through code.",
+    imgPath: "/images/edu_bsc.png",
+    logoPath: "/images/logo_mdu.png",
+    title: "BSc. Computer Science",
+    date: "2016 – 2020",
+    address: "Maharshi Dayanand University, Rohtak, India",
+    learnings: [
+      "Developed strong C, C++, and Visual Basic programming skills.",
+      "Engineered and analyzed core data structures and algorithms.",
+      "Built relational databases and designed web interfaces using HTML/CSS.",
+      "Explored operating systems, computer architecture, and networking fundamentals.",
+      "Applied software engineering and systems analysis techniques through lab projects.",
     ],
   },
 ];
@@ -271,7 +337,7 @@ export {
   abilities,
   logoIconsList,
   counterItems,
-  expCards,
+  eduCards,
   expLogos,
   testimonials,
   socialImgs,

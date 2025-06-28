@@ -4,6 +4,7 @@ import Showcase from "./sections/Showcase";
 import Navbar from "./components/navbar";
 import LogoSection from "./sections/LogoSection";
 import FeatureCards from "./sections/FeatureCards";
+import Education from "./sections/Education";
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
       <Showcase />
       <LogoSection />
       <FeatureCards />
+      <Education />
     </>
   );
 };
