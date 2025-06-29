@@ -20,7 +20,7 @@ const Education = () => {
         ease: "power2.inOut",
         scrollTrigger: {
           trigger: card,
-          start: "top 80%",
+          start: "top 60%",
         },
       });
     });
@@ -31,11 +31,11 @@ const Education = () => {
       ease: "power1.inOut",
       scrollTrigger: {
         trigger: ".timeline",
-        start: "top center",
-        end: "70% center",
+        start: "top 92.5%",
+        end: "90% 80%",
         onUpdate: (self) => {
           gsap.to(".timeline", {
-            scaleY: 1 - self.progress,
+            scaleY: 1.03 - self.progress,
           });
         },
       },
@@ -46,11 +46,11 @@ const Education = () => {
       gsap.from(text, {
         xPercent: 0,
         opacity: 0,
-        duration: 1,
+        duration: 0.3,
         ease: "power2.inOut",
         scrollTrigger: {
           trigger: text,
-          start: "top 60%",
+          start: "top 90%",
         },
       });
     });

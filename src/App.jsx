@@ -12,9 +12,9 @@ const App = () => {
       <Navbar />
       <Hero />
       <Showcase />
-      <LogoSection />
       <FeatureCards />
       <Education />
+      <LogoSection />
     </>
   );
 };

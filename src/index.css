@@ -189,7 +189,7 @@ section {
       @apply flex md:flex-row flex-col xl:flex-col gap-10 xl:w-[40%];
 
       .image-wrapper {
-        @apply xl:h-[37vh] md:h-52 lg:h-72 h-64 relative rounded-xl xl:px-5 2xl:px-12 py-0;
+        @apply xl:h-[37vh] md:h-52 md:w-[37vw] lg:w-[41vw] lg:h-72 h-64 relative rounded-xl xl:px-5 2xl:px-12 py-0;
       }
 
       img {
@@ -369,11 +369,10 @@ section {
   background: linear-gradient(
     0deg,
     rgba(69, 222, 196, 0) 0%,
-    #6d45ce 15%,
-    #62e0ff 25%,
-    #52aeff 37.51%,
-    #fd5c79 62.83%,
-    #6d45ce 92.91%
+    #6d45ce 22%,
+    #62e0ff 42%,
+    #e41937 62%,
+    #6d45ce 82%
   );
 }
 

@@ -2,60 +2,69 @@ import React, { useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+
 gsap.registerPlugin(ScrollTrigger);
 
 const Showcase = () => {
   const sectionRef = useRef(null);
-  const Project1Ref = useRef(null);
-  const Project2Ref = useRef(null);
-  const Project3Ref = useRef(null);
+  const projectRefs = useRef([]);
+
+  // Clear project refs on each render
+  projectRefs.current = [];
+
+  const addToRefs = (el) => {
+    if (el && !projectRefs.current.includes(el)) {
+      projectRefs.current.push(el);
+    }
+  };
 
   useGSAP(() => {
-    const projects = [
-      Project1Ref.current,
-      Project2Ref.current,
-      Project3Ref.current,
-    ];
-    projects.forEach((card, index) => {
+    // Section fade-in
+    gsap.fromTo(
+      sectionRef.current,
+      { opacity: 0 },
+      { opacity: 1, duration: 1.5, ease: "power2.inOut" }
+    );
+
+    // Animate each project card on scroll
+    projectRefs.current.forEach((card, index) => {
       gsap.fromTo(
         card,
         { opacity: 0, y: 50 },
         {
           opacity: 1,
           y: 0,
-          duration: 1,
-          delay: 0.3 * (index + 1),
+          duration: 0.8,
           ease: "power2.inOut",
           scrollTrigger: {
             trigger: card,
-            start: "top bottom-=100",
+            start: "top 90%",
+            toggleActions: "play none none none",
+            id: `project-${index}`,
           },
         }
       );
     });
 
-    gsap.fromTo(
-      sectionRef.current,
-      { opacity: 0 },
-      { opacity: 1, duration: 1.5, ease: "power2.inOut" }
-    );
+    ScrollTrigger.refresh(); // Ensure positions are recalculated
   }, []);
+
   return (
     <div id="work" ref={sectionRef} className="app-showcase">
       <div className="w-full">
         <div className="showcaselayout">
           {/* Left */}
-          <div ref={Project1Ref} className="first-project-wrapper ">
+          <div ref={addToRefs} className="first-project-wrapper ">
             <a
               href="https://codeoverflow-rose.vercel.app/"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <div className="image-wrapper bg-[#f2e3f7] rounded-xl ">
+              <div className="image-wrapper bg-[#f2e3f7] rounded-xl">
                 <img
                   src="/images/project1.png"
                   alt="codeoverflow"
-                  className="max-md:object-contain object-fit"
+                  className="w-auto h-full object-center items-center"
                 />
               </div>
               <div className="text-content">
@@ -65,15 +74,15 @@ const Showcase = () => {
                 </h2>
                 <p className="text-white-50 md:text-xl">
                   A web app built with Next.js, TypeScript, MongoDB, Clerk, and
-                  Tailwind CSS for a lightning-fast, user-friendly experience.
+                  Tailwind CSS.
                 </p>
               </div>
             </a>
           </div>
+
           {/* Right */}
           <div className="project-list-wrapper overflow-hidden">
-            {/* project 2 */}
-            <div ref={Project2Ref} className="project">
+            <div ref={addToRefs} className="project">
               <a
                 href="https://threads-clone-liart.vercel.app/"
                 target="_blank"
@@ -85,8 +94,8 @@ const Showcase = () => {
                 <h2>Threads – Clone Project</h2>
               </a>
             </div>
-            {/* project 3 */}
-            <div ref={Project3Ref} className="project">
+
+            <div ref={addToRefs} className="project">
               <a
                 href="https://github.com/hariomphogat/React_Admin_Dashboard"
                 target="_blank"
