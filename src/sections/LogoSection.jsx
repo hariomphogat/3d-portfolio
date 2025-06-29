@@ -4,8 +4,8 @@ import { logoIconsList } from "../constants/index.js";
 const LogoSection = () => {
   const LogoIcon = ({ icon }) => {
     return (
-      <div className="flex-none flex-center marquee-item">
-        <img src={icon.imgPath} alt={icon.name} />
+      <div className="flex-none flex-center marquee-item items-baseline">
+        <img src={icon.imgPath} alt={icon.name} className="h-[64px] w-auto" />
       </div>
     );
   };

@@ -73,7 +73,7 @@ const Showcase = () => {
                   Portfolios, and Job Discovery
                 </h2>
                 <p className="text-white-50 md:text-xl">
-                  A web app built with Next.js, TypeScript, MongoDB, Clerk, and
+                  A web app built with Next.js, TypeScript, MongoDB, Clerk, &
                   Tailwind CSS.
                 </p>
               </div>
