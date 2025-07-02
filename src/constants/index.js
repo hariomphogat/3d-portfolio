@@ -152,7 +152,7 @@ const techStackIcons = [
 const eduCards = [
   {
     review:
-      "Pursuing this advanced degree pushed my technical and analytical skills to new heights. It has been a transformative journey into modern AI and big data solutions.",
+      "Pursuing this advanced degree pushed my technical and analytical skills to new heights. It has been a transformative journey into modern AI and big data solutions, further enriched by certifications in Web Technologies and Generative AI for Everyday Life.",
     imgPath: "/images/edu_msc.png",
     logoPath: "/images/logo_mdu.png",
     title: "MSc. Computer Science (Data Science & Machine Learning)",
@@ -160,8 +160,8 @@ const eduCards = [
     address: "Maharshi Dayanand University, Rohtak, India",
     learnings: [
       "Engineered data analysis workflows using Python and R.",
-      "Designed and implemented advanced ML and deep learning models.",
-      "Developed scalable big data pipelines with Hadoop and Spark.",
+      "Implemented advanced ML and deep learning models.",
+      "Explored big data technologies like Hadoop, Spark.",
       "Applied computer vision and image processing with OpenCV.",
       "Built full-stack web apps and explored advanced AI techniques.",
     ],
