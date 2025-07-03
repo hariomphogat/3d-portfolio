@@ -8,13 +8,12 @@ import Education from "./sections/Education";
 import TechStack from "./sections/TechStack";
 import Contact from "./sections/Contact";
 import StartupLoader from "./components/StartupLoader";
+import Footer from "./sections/Footer";
 
 const App = () => {
-  // const [loadingDone, setLoadingDone] = useState(false);
-
   return (
     <>
-      <StartupLoader />
+      {/* <StartupLoader /> */}
       <Navbar />
       <Hero />
       <Showcase />
@@ -23,6 +22,7 @@ const App = () => {
       <TechStack />
       <LogoSection />
       <Contact />
+      <Footer />
     </>
   );
 };

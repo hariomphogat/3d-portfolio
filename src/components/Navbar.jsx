@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { navLinks } from "../constants/index";
+import ExportPdf from "./ExportPdf";
 
 const Navbar = () => {
   // State to track if the navbar is scrolled
@@ -24,7 +25,10 @@ const Navbar = () => {
     <header className={`navbar ${scrolled ? "scrolled" : "not-scrolled"}`}>
       <div className="inner">
         <a className="logo" href="#hero">
-          <div className="flex flex-row gap-2 items-center">
+          <div
+            style={{ fontFamily: '"Baskervville SC", serif' }}
+            className="flex flex-row gap-2 items-center"
+          >
             <span>
               <img
                 src="/icons/apple-touch-icon.png"
@@ -47,12 +51,14 @@ const Navbar = () => {
             ))}
           </ul>
         </nav>
-
-        <a href="#contact" className="contact-btn group">
-          <div className="inner">
-            <span> Contact me</span>
-          </div>
-        </a>
+        <div className="flex flex-row gap-6 items-center justify-end">
+          <a href="#contact" className="contact-btn group">
+            <div className="inner">
+              <span> Contact me</span>
+            </div>
+          </a>
+          <ExportPdf />
+        </div>
       </div>
     </header>
   );

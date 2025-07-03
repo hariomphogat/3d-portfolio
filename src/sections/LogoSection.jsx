@@ -5,7 +5,11 @@ const LogoSection = () => {
   const LogoIcon = ({ icon }) => {
     return (
       <div className="flex-none flex-center marquee-item items-baseline">
-        <img src={icon.imgPath} alt={icon.name} className="h-[64px] w-auto" />
+        <img
+          src={icon.imgPath}
+          alt={icon.name}
+          className="h-[32px] lg:h-[64px] w-auto"
+        />
       </div>
     );
   };
@@ -15,7 +19,7 @@ const LogoSection = () => {
       <div className="gradient-edge" />
       <div className="gradient-edge" />
 
-      <div className="marquee h-52">
+      <div className="marquee h-36 lg:h-52">
         <div className="marquee-box md:gap-12 gap-5">
           {logoIconsList.map((icon, index) => (
             <LogoIcon key={`${icon.name}-first-${index}`} icon={icon} />

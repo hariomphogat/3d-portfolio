@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wght@0,200..900;1,200..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Baskervville+SC:wght@400..700&display=swap");
 @import "tailwindcss";
 
 :root {
@@ -39,6 +40,36 @@ section {
 }
 
 @layer components {
+  /* Base layout, size, typography */
+  .btn-base {
+    @apply m-1 
+      flex justify-center items-center 
+      font-mono text-[16px] text-[#a1a1a1]
+      border border-[#404c5d] rounded-[5px]
+      transition-all duration-500 ease-in-out;
+  }
+
+  /* Background gradient and initial shadow style */
+  .btn-gradient-dark {
+    @apply bg-gradient-to-br from-[#2e2d2d] to-[#212121];
+  }
+
+  .btn-shadow-inner {
+    @apply shadow-[-1px_-5px_15px_#41465b,5px_5px_15px_#41465b,inset_5px_5px_10px_#212121,inset_-5px_-5px_10px_#212121];
+  }
+
+  /* Hover state: outer shadows and text color */
+  .btn-hover-glow {
+    @apply hover:shadow-[1px_1px_13px_#20232e,-1px_-1px_13px_#545b78]
+      hover:text-[#d6d6d6];
+  }
+
+  /* Active state: stronger glow and text color */
+  .btn-active-glow {
+    @apply active:shadow-[1px_1px_13px_#20232e,-1px_-1px_33px_#545b78]
+      active:text-[#d6d6d6];
+  }
+
   .padding-x {
     @apply px-5 md:px-10;
   }
@@ -298,10 +329,10 @@ section {
   }
 
   .footer {
-    @apply my-10 md:mt-20 mt-10 text-white-50 px-5 md:px-20 xl:px-20 flex items-center justify-center;
+    @apply my-10 md:mt-20 mt-20 text-white-50 px-5 md:px-20 xl:px-20 flex items-center justify-center;
 
     .footer-container {
-      @apply grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-0 w-full;
+      @apply grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 md:gap-0 w-full;
     }
 
     p {
