@@ -7,7 +7,7 @@ const Footer = () => {
     <footer className="footer h-48">
       <div className="footer-container">
         {/* Logo */}
-        <div className="flex flex-col justify-between items-center md:items-start gap-4 col-span-3 xl:col-span-1">
+        <div className="flex flex-col justify-between items-center md:items-start gap-4 ">
           <div className="flex flex-row justify-center items-center">
             <img
               src="/images/hpwhitelogo.png"
@@ -28,7 +28,7 @@ const Footer = () => {
           </div>
         </div>
         {/* Social Links */}
-        <div className="social flex flex-row gap-2 justify-center items-center">
+        <div className="social flex flex-row gap-2 justify-center items-center ">
           {socialImgs.map((img) => (
             <a key={img.url} className="icon" target="blank" href={img.url}>
               <img
@@ -40,7 +40,7 @@ const Footer = () => {
           ))}
         </div>
         {/* Resume Download Button */}
-        <div className="flex flex-col justify-center items-center md:items-end">
+        <div className="flex flex-col justify-center items-center xl:items-end">
           <DownloadButton />
         </div>
       </div>

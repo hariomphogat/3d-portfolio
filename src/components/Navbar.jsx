@@ -57,7 +57,9 @@ const Navbar = () => {
               <span> Contact me</span>
             </div>
           </a>
-          <ExportPdf />
+          <div className="hidden lg:block">
+            <ExportPdf />
+          </div>
         </div>
       </div>
     </header>
