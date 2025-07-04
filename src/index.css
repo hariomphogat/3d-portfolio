@@ -238,10 +238,10 @@ section {
   }
 
   .cta-button {
-    @apply px-4 py-4 rounded-lg bg-black-200 flex justify-center items-center relative cursor-pointer overflow-hidden;
+    @apply p-4 rounded-lg bg-black-200 flex justify-center items-center relative cursor-pointer overflow-hidden;
 
     .bg-circle {
-      @apply absolute -right-10 origin-center top-1/2 -translate-y-1/2 
+      @apply absolute md:-right-10 origin-center top-1/2 -translate-y-1/2 
         w-[120%] h-[120%] group-hover:size-10 group-hover:right-10
         rounded-full bg-white-50 transition-all duration-500;
     }
@@ -274,11 +274,11 @@ section {
   }
 
   .timeline {
-    @apply absolute z-30 h-[110%] -top-10 w-14 md:w-28 bg-black;
+    @apply absolute z-30 h-[103%] -top-10 w-14 md:w-28 bg-black will-change-transform contain-strict;
   }
 
   .timeline-logo {
-    @apply md:size-20 size-10 flex-none rounded-full flex justify-center items-center md:-translate-y-7 border border-black-50 bg-black-100;
+    @apply md:size-18 size-10 flex-none rounded-full flex justify-center items-center md:-translate-y-7 border border-black-50 bg-black-100;
   }
 
   .edu-card-wrapper {
@@ -302,7 +302,7 @@ section {
   }
 
   .tech-grid {
-    @apply grid xl:grid-cols-5 md:grid-cols-3 grid-cols-1 xl:gap-16 md:gap-10 gap-5 mt-16;
+    @apply grid xl:grid-cols-5 md:grid-cols-3 grid-cols-1 xl:gap-16 md:gap-10 gap-6 mt-16 mx-10 md:mx-auto z-50 relative;
   }
 
   .tech-icon-wrapper {
@@ -329,7 +329,7 @@ section {
   }
 
   .footer {
-    @apply my-10 md:mt-20 mt-20 text-white-50 px-5 md:px-20 xl:px-20 flex items-center justify-center;
+    @apply my-10 mb-20 md:mb-5 md:mt-20 mt-20 text-white-50 px-5 md:px-20 xl:px-20 flex items-center justify-center;
 
     .footer-container {
       @apply grid grid-cols-1 xl:grid-cols-3 gap-8  w-full;

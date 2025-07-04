@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useCallback } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
@@ -9,14 +9,12 @@ const Showcase = () => {
   const sectionRef = useRef(null);
   const projectRefs = useRef([]);
 
-  // Clear project refs on each render
-  projectRefs.current = [];
-
-  const addToRefs = (el) => {
+  // UseCallback so function reference remains stable
+  const addToRefs = useCallback((el) => {
     if (el && !projectRefs.current.includes(el)) {
       projectRefs.current.push(el);
     }
-  };
+  }, []);
 
   useGSAP(() => {
     // Section fade-in
@@ -35,18 +33,19 @@ const Showcase = () => {
           opacity: 1,
           y: 0,
           duration: 0.8,
-          ease: "power2.inOut",
+          ease: "power2.out",
           scrollTrigger: {
             trigger: card,
             start: "top 90%",
             toggleActions: "play none none none",
             id: `project-${index}`,
+            once: true, // Only animate once
           },
         }
       );
     });
-
-    ScrollTrigger.refresh(); // Ensure positions are recalculated
+    // Ensure positions are recalculated if layout changes after mount
+    ScrollTrigger.refresh();
   }, []);
 
   return (
@@ -65,6 +64,7 @@ const Showcase = () => {
                   src="/images/project1.png"
                   alt="codeoverflow"
                   className="w-auto h-full object-center items-center"
+                  loading="lazy"
                 />
               </div>
               <div className="text-content">
@@ -89,7 +89,11 @@ const Showcase = () => {
                 rel="noopener noreferrer"
               >
                 <div className="image-wrapper bg-[#e9c9a3]">
-                  <img src="/images/project2.png" alt="Threads" />
+                  <img
+                    src="/images/project2.png"
+                    alt="Threads"
+                    loading="lazy"
+                  />
                 </div>
                 <h2>Threads – Clone Project</h2>
               </a>
@@ -102,7 +106,11 @@ const Showcase = () => {
                 rel="noopener noreferrer"
               >
                 <div className="image-wrapper bg-[#ffe7eb]">
-                  <img src="/images/project3.png" alt="Dashboard" />
+                  <img
+                    src="/images/project3.png"
+                    alt="Dashboard"
+                    loading="lazy"
+                  />
                 </div>
                 <h2>Modern Admin Dashboard</h2>
               </a>

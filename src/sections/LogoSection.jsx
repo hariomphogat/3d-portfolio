@@ -1,19 +1,21 @@
 import React from "react";
 import { logoIconsList } from "../constants/index.js";
 
+const LogoIcon = ({ icon }) => {
+  return (
+    <div className="flex-none flex-center marquee-item items-baseline">
+      <img
+        src={icon.imgPath}
+        alt={icon.name}
+        className="h-[32px] lg:h-[64px] w-auto"
+        loading="lazy"
+      />
+    </div>
+  );
+};
 const LogoSection = () => {
-  const LogoIcon = ({ icon }) => {
-    return (
-      <div className="flex-none flex-center marquee-item items-baseline">
-        <img
-          src={icon.imgPath}
-          alt={icon.name}
-          className="h-[32px] lg:h-[64px] w-auto"
-        />
-      </div>
-    );
-  };
-
+  // Duplicate the logo icons to create a continuous marquee effect
+  const extendedIconList = [...logoIconsList, ...logoIconsList];
   return (
     <div className="md:my-20 my-10 relative">
       <div className="gradient-edge" />
@@ -21,12 +23,8 @@ const LogoSection = () => {
 
       <div className="marquee h-36 lg:h-52">
         <div className="marquee-box md:gap-12 gap-5">
-          {logoIconsList.map((icon, index) => (
+          {extendedIconList.map((icon, index) => (
             <LogoIcon key={`${icon.name}-first-${index}`} icon={icon} />
-          ))}
-          {/* render Duplicat itmes for loop */}
-          {logoIconsList.map((icon, index) => (
-            <LogoIcon key={`${icon.name}-second-${index}`} icon={icon} />
           ))}
         </div>
       </div>

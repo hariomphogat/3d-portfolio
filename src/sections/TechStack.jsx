@@ -1,13 +1,18 @@
-import React from "react";
+import React, { useRef } from "react";
 import TitleHeader from "../components/TitleHeader";
 import { techStackIcons } from "../constants";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import TechIcon from "../components/Models/TechLogos/TechIcon";
+
 const TechStack = () => {
+  const cardsRef = useRef([]);
+
   useGSAP(() => {
+    if (!cardsRef.current) return;
+
     gsap.fromTo(
-      ".tech-card",
+      cardsRef.current,
       {
         y: 50,
         opacity: 0,
@@ -15,12 +20,14 @@ const TechStack = () => {
       {
         y: 0,
         opacity: 1,
-        duration: 1,
-        ease: "power.inOut",
+        duration: 0.5,
+        ease: "power2.Out",
         stagger: 0.2,
+        force3D: true,
         scrollTrigger: {
           trigger: "#skills",
           start: "top center",
+          once: true,
         },
       }
     );
@@ -34,9 +41,10 @@ const TechStack = () => {
         />
 
         <div className="tech-grid">
-          {techStackIcons.map((icon) => (
+          {techStackIcons.map((icon, index) => (
             <div
               key={icon.name}
+              ref={(el) => (cardsRef.current[index] = el)}
               className="card-border tech-card overflow-hidden group xl:rounded-full rounded-lg"
             >
               <div className="tech-card-animated-bg" />

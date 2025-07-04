@@ -1,14 +1,19 @@
-import React from "react";
+import React, { useRef } from "react";
 import { words } from "../constants/index";
 import Button from "../components/Button";
 import HeroExperience from "../components/HeroModels/HeroExperience";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import AnimatedCounter from "../components/AnimatedCounter";
+
 const Hero = () => {
+  const heroTextRef = useRef(null);
+
   useGSAP(() => {
+    if (!heroTextRef.current) return;
+
     gsap.fromTo(
-      ".hero-text h1",
+      heroTextRef.current.querySelectorAll("h1"),
       {
         y: 50,
         opacity: 0,
@@ -16,7 +21,7 @@ const Hero = () => {
       {
         y: 0,
         opacity: 1,
-        stagger: 1.2,
+        stagger: 1.3,
         duration: 1,
         ease: "power2.out",
       }
@@ -25,12 +30,16 @@ const Hero = () => {
 
   return (
     <section id="hero" className="relative overflow-hidden">
+      {/* Background */}
       <div className="absolute top-0 left-0 z-10">
-        <img src="/images/bg.png" alt="Background" />
+        <img src="/images/bg.png" alt="Background" loading="eager" />
       </div>
       <div className="hero-layout">
         {/* Left:Hero Content*/}
-        <header className="flex flex-col justify-center md:w-full w-screen md:px-20 px-5">
+        <header
+          ref={heroTextRef}
+          className="flex flex-col justify-center md:w-full w-screen md:px-20 px-5"
+        >
           <div className="flex flex-col gap-7">
             <div className="hero-text">
               <h1>
@@ -46,6 +55,7 @@ const Hero = () => {
                           src={word.imgPath}
                           alt={word.text}
                           className="xl:size-12 md:size-10 size-7 md:p-2 p-1 rounded-full bg-white-50"
+                          loading="lazy"
                         />
                         <span>{word.text}</span>
                       </span>
@@ -61,8 +71,8 @@ const Hero = () => {
               for code.
             </p>
             <Button
-              className="md:w-80 md:h-16 w-60 h-12"
-              text="See my Work"
+              className="md:w-96 md:h-16 w-[315px] h-12"
+              text="Explore my portfolio"
               id="counter"
             />
           </div>

@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://hariomphogat.vercel.app/sitemap.xml
+
+Optional: disallow admin or private paths
+
+Disallow: /admin/
+
+Disallow: /private/
+

@@ -8,10 +8,13 @@ import Education from "./sections/Education";
 import TechStack from "./sections/TechStack";
 import Contact from "./sections/Contact";
 import Footer from "./sections/Footer";
+import StartupLoader from "./components/StartupLoader";
+import "./index.css";
 
 const App = () => {
   return (
     <>
+      <StartupLoader />
       <Navbar />
       <Hero />
       <Showcase />

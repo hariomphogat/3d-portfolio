@@ -20,7 +20,7 @@ const StartupLoader = ({ onFinish }) => {
 
       tl.to(loaderRef.current, {
         yPercent: -100,
-        duration: 1.2,
+        duration: 1,
         ease: "power4.inOut",
       });
     }

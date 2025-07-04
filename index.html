@@ -2,6 +2,8 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+
+    <!-- Favicon and app icons -->
     <link
       rel="apple-touch-icon"
       sizes="180x180"
@@ -20,8 +22,64 @@
       href="/icons/favicon-16x16.png"
     />
     <link rel="manifest" href="/icons/site.webmanifest" />
+
+    <!-- Basic meta -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hariom Phogat</title>
+    <title>Hariom Phogat — Developer Portfolio</title>
+    <meta
+      name="description"
+      content="Portfolio website of Hariom Phogat — showcasing 3D experiences, projects, and modern web skills. Based in India."
+    />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://hariomphogat.vercel.app/" />
+    <meta property="og:title" content="Hariom Phogat — Developer Portfolio" />
+    <meta
+      property="og:description"
+      content="Showcasing 3D experiences, projects, and skills as a passionate web developer from India."
+    />
+    <meta
+      property="og:image"
+      content="https://hariomphogat.vercel.app/images/og-image.png"
+    />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://hariomphogat.vercel.app/" />
+    <meta name="twitter:title" content="Hariom Phogat — Developer Portfolio" />
+    <meta
+      name="twitter:description"
+      content="Showcasing 3D experiences, projects, and skills as a passionate web developer from India."
+    />
+    <meta
+      name="twitter:image"
+      content="https://hariomphogat.vercel.app/images/og-image.png"
+    />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://hariomphogat.vercel.app/" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Hariom Phogat",
+        "url": "https://hariomphogat.vercel.app/",
+        "sameAs": [
+          "https://github.com/hariomphogat",
+          "https://linkedin.com/in/hariomphogat"
+        ],
+        "jobTitle": "Full Stack Developer",
+        "description": "Passionate web developer specializing in React, Next.js, TypeScript, and 3D experiences.",
+        "image": "https://hariomphogat.vercel.app/images/og-image.png"
+      }
+    </script>
+
+    <!-- Preload important assets (optional for perf) -->
+    <!-- <link rel="preload" href="/fonts/your-font.woff2" as="font" type="font/woff2" crossorigin /> -->
   </head>
   <body>
     <div id="root"></div>

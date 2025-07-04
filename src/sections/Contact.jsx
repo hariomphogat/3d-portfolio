@@ -1,7 +1,8 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useCallback } from "react";
 import TitleHeader from "../components/TitleHeader";
 import ContactExperience from "../components/Models/AvatarModel/ContactExperience";
 import emailjs from "@emailjs/browser";
+
 const Contact = () => {
   const formRef = useRef(null);
   const [formData, setFormData] = useState({
@@ -9,36 +10,39 @@ const Contact = () => {
     email: "",
     message: "",
   });
-
   const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(null);
+
+  const handleChange = useCallback((e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // form submission logic
+    setLoading(true);
+    setSuccess(null);
+
     try {
-      setLoading(true);
       await emailjs.sendForm(
         import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
         import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
-        // form data
         formRef.current,
         import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
       );
-      // Reset form after Submission
       setFormData({ name: "", email: "", message: "" });
+      setSuccess("Message sent successfully ✅");
     } catch (error) {
-      console.log("EmailJS ERROR,", error);
+      console.error("EmailJS ERROR:", error);
+      setSuccess("Oops! Something went wrong. Please try again.");
     } finally {
       setLoading(false);
     }
   };
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
-  };
+
   return (
     <section id="contact" className="flex-center section-padding">
       <div className="w-full h-full md:px-10 px-5">
@@ -48,10 +52,9 @@ const Contact = () => {
         />
 
         <div className="mt-16 grid-12-cols">
-          {/* contact form - left side */}
+          {/* Left: Form */}
           <div className="xl:col-span-5">
             <div className="flex-center card-border rounded-xl p-10">
-              {/* Form */}
               <form
                 ref={formRef}
                 onSubmit={handleSubmit}
@@ -63,7 +66,7 @@ const Contact = () => {
                     type="text"
                     id="name"
                     name="name"
-                    placeholder="your good name"
+                    placeholder="Your good name"
                     value={formData.name}
                     onChange={handleChange}
                     required
@@ -75,7 +78,7 @@ const Contact = () => {
                     type="email"
                     id="email"
                     name="email"
-                    placeholder="your email address"
+                    placeholder="Your email address"
                     value={formData.email}
                     onChange={handleChange}
                     required
@@ -87,7 +90,7 @@ const Contact = () => {
                     id="message"
                     name="message"
                     rows="5"
-                    placeholder="your message"
+                    placeholder="Your message"
                     value={formData.message}
                     onChange={handleChange}
                     required
@@ -104,16 +107,28 @@ const Contact = () => {
                       <img
                         src="/images/arrow-down.svg"
                         alt="arrow"
-                        className="rotate-180"
+                        className="hidden md:block rotate-180"
+                        loading="lazy"
                       />
                     </div>
                   </div>
                 </button>
+                {/* Feedback message */}
+                {success && (
+                  <p
+                    className={`text-sm ${
+                      success.includes("✅") ? "text-green-500" : "text-red-500"
+                    }`}
+                  >
+                    {success}
+                  </p>
+                )}
               </form>
             </div>
           </div>
-          {/* 3d Experience - Right Side*/}
-          <div className="xl:col-span-7 min-h-96">
+
+          {/* Right: 3D model */}
+          <div className="xl:col-span-7 min-h-96 mx-10 md:mx-0">
             <div className="w-full h-full bg-transparent hover:cursor-grab rounded-3xl overflow-hidden">
               <ContactExperience />
             </div>

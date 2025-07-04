@@ -9,48 +9,68 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const Education = () => {
+  // check if the user is on a low-end device
+  const isLowEndDevice = () => {
+    return navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4;
+  };
+
   useGSAP(() => {
+    //Disable all animattions on Low-End Devices
+    if (isLowEndDevice()) {
+      ScrollTrigger.disable();
+      return;
+    }
     // animate left-side cards
+    // Animate only visible cards, staggered
     gsap.utils.toArray(".timeline-card").forEach((card) => {
       gsap.from(card, {
-        xPercent: -100,
         opacity: 0,
-        transformOrigin: "left left",
-        duration: 1,
-        ease: "power2.inOut",
+        x: -50,
+        duration: 0.6,
+        ease: "power2.out",
+        force3D: true,
+        delay: 0.8,
         scrollTrigger: {
           trigger: card,
-          start: "top 60%",
+          start: "top 80%",
+          onEnter: () => (card.style.willChange = "transform, opacity"),
+          onLeave: () => (card.style.willChange = "auto"),
+          onLeaveBack: () => (card.style.willChange = "auto"),
+          onEnterBack: () => (card.style.willChange = "auto"),
         },
       });
     });
 
     // animate the timeline
     gsap.to(".timeline", {
+      scaleY: 0,
       transformOrigin: "bottom bottom",
-      ease: "power1.inOut",
+      ease: "none",
       scrollTrigger: {
-        trigger: ".timeline",
-        start: "top 92.5%",
-        end: "90% 80%",
-        onUpdate: (self) => {
-          gsap.to(".timeline", {
-            scaleY: 1.03 - self.progress,
-          });
-        },
+        trigger: ".timeline-wrapper",
+        start: "top 90%",
+        end: "bottom top+=200",
+        scrub: true,
       },
     });
 
     // animate the EduText
     gsap.utils.toArray(".eduText").forEach((text) => {
       gsap.from(text, {
-        xPercent: 0,
         opacity: 0,
-        duration: 0.3,
+        y: 30,
+        duration: 0.5,
         ease: "power2.inOut",
+        delay: 0.2,
+        force3D: true,
         scrollTrigger: {
           trigger: text,
           start: "top 90%",
+          toggleActions: "play none none none",
+          onEnter: () => (text.style.willChange = "opacity"),
+          onLeave: () => (text.style.willChange = "auto"),
+          onLeaveBack: () => (text.style.willChange = "auto"),
+          onEnterBack: () => (text.style.willChange = "auto"),
         },
       });
     });
@@ -71,11 +91,7 @@ const Education = () => {
             {eduCards.map((card, index) => (
               <div key={card.title} className="edu-card-wrapper">
                 <div className="xl:w-2/6">
-                  <GlowCard card={card} index={index}>
-                    {/* <div>
-                      <img src={card.imgPath} alt={card.title} />
-                    </div> */}
-                  </GlowCard>
+                  <GlowCard card={card} index={index}></GlowCard>
                 </div>
                 <div className="xl:w-4/6">
                   <div className="flex items-start">
@@ -85,7 +101,7 @@ const Education = () => {
                     </div>
                     <div className="eduText flex xl:gap-20 md:gap-10 gap-5 relative z-20">
                       <div className="timeline-logo">
-                        <img src={card.logoPath} alt="logo" />
+                        <img src={card.logoPath} alt="logo" loading="lazy" />
                       </div>
                       <div>
                         <h1 className="font-semibold text-3xl">{card.title}</h1>

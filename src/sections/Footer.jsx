@@ -35,6 +35,7 @@ const Footer = () => {
                 src={img.imgPath}
                 className="object-fill hover:shadow-white-50 shadow-2xl h-[40px] w-[40px] rounded-xl hover:scale-110 transition-all duration-300 ease-in-out"
                 alt={img.name}
+                loading="lazy"
               />
             </a>
           ))}
