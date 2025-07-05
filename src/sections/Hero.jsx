@@ -1,10 +1,10 @@
 import React, { useRef } from "react";
 import { words } from "../constants/index";
 import Button from "../components/Button";
-import HeroExperience from "../components/HeroModels/HeroExperience";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import AnimatedCounter from "../components/AnimatedCounter";
+import HeroExperience from "../components/HeroModels/HeroExperience";
 
 const Hero = () => {
   const heroTextRef = useRef(null);

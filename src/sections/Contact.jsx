@@ -1,7 +1,11 @@
-import React, { useRef, useState, useCallback } from "react";
+import React, { useRef, useState, useCallback, Suspense, lazy } from "react";
 import TitleHeader from "../components/TitleHeader";
-import ContactExperience from "../components/Models/AvatarModel/ContactExperience";
 import emailjs from "@emailjs/browser";
+
+// Lazy load the heavy 3D component
+const ContactExperience = lazy(() =>
+  import("../components/Models/AvatarModel/ContactExperience")
+);
 
 const Contact = () => {
   const formRef = useRef(null);
@@ -140,7 +144,11 @@ const Contact = () => {
           {/* Right: 3D model */}
           <div className="xl:col-span-7 min-h-96 mx-5 md:mx-30">
             <div className="w-full h-full bg-transparent hover:cursor-grab rounded-3xl overflow-hidden">
-              <ContactExperience />
+              <Suspense
+                fallback={<div className="text-white">Loading 3D model...</div>}
+              >
+                <ContactExperience />
+              </Suspense>
             </div>
           </div>
         </div>
