@@ -57,7 +57,6 @@ const Education = () => {
     gsap.utils.toArray(".eduText").forEach((text) => {
       gsap.from(text, {
         opacity: 0,
-        y: 30,
         duration: 0.5,
         ease: "power2.inOut",
         delay: 0.2,
