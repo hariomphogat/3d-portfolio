@@ -19,7 +19,7 @@ const ExportPdf = () => {
         onMouseMove={handleMouseMove}
       >
         <img
-          src="/images/exportpdf.png"
+          src="/images/exportpdf.webp"
           alt="download icon"
           className="inline-block mr-2 h-10 w-10 hover:scale-110 transition-all duration-300 ease-in-out cursor-pointer"
         />

@@ -59,6 +59,7 @@ const Contact = () => {
                 ref={formRef}
                 onSubmit={handleSubmit}
                 className="w-full flex flex-col gap-7"
+                autoComplete="off"
               >
                 <div>
                   <label htmlFor="name">Name</label>
@@ -70,6 +71,7 @@ const Contact = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
+                    autoComplete="off"
                   />
                 </div>
                 <div>
@@ -82,6 +84,7 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
+                    autoComplete="off"
                   />
                 </div>
                 <div>
@@ -97,7 +100,13 @@ const Contact = () => {
                   />
                 </div>
 
-                <button type="submit" disabled={loading}>
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className={`${
+                    loading ? "opacity-60 cursor-not-allowed" : ""
+                  }`}
+                >
                   <div className="cta-button group">
                     <div className="bg-circle" />
                     <p className="text">
@@ -113,9 +122,10 @@ const Contact = () => {
                     </div>
                   </div>
                 </button>
-                {/* Feedback message */}
+
                 {success && (
                   <p
+                    aria-live="polite"
                     className={`text-sm ${
                       success.includes("✅") ? "text-green-500" : "text-red-500"
                     }`}
@@ -128,7 +138,7 @@ const Contact = () => {
           </div>
 
           {/* Right: 3D model */}
-          <div className="xl:col-span-7 min-h-96 mx-10 md:mx-0">
+          <div className="xl:col-span-7 min-h-96 mx-5 md:mx-30">
             <div className="w-full h-full bg-transparent hover:cursor-grab rounded-3xl overflow-hidden">
               <ContactExperience />
             </div>

@@ -3,25 +3,32 @@ import { counterItems } from "../constants";
 import CountUp from "react-countup";
 
 const AnimatedCounter = () => {
-  //  This component animates a counter that counts up to specified values when it comes into view.
-  // It uses Intersection Observer to detect when the counter is in view and starts the counting animation
   const [start, setStart] = useState(false);
   const counterRef = useRef(null);
+  const observerRef = useRef(null);
 
   useEffect(() => {
-    const observer = new window.IntersectionObserver(
+    observerRef.current = new window.IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setStart(true);
-          observer.disconnect();
+          if (observerRef.current) {
+            observerRef.current.disconnect();
+          }
         }
       },
       { threshold: 0.3 }
     );
+
     if (counterRef.current) {
-      observer.observe(counterRef.current);
+      observerRef.current.observe(counterRef.current);
     }
-    return () => observer.disconnect();
+
+    return () => {
+      if (observerRef.current) {
+        observerRef.current.disconnect();
+      }
+    };
   }, []);
 
   return (
@@ -31,9 +38,9 @@ const AnimatedCounter = () => {
           <div
             key={item.id}
             className="bg-zinc-900 rounded-lg p-10 flex flex-col justify-center"
+            style={{ willChange: "transform, opacity" }} // Hint for smoother number transitions
           >
             <div className="counter-number text-white text-5xl font-bold mb-2">
-              {/* CountUp component animates the number counting up to the specified value */}
               <CountUp
                 start={start ? undefined : 0}
                 suffix={item.suffix}

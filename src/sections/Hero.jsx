@@ -32,7 +32,7 @@ const Hero = () => {
     <section id="hero" className="relative overflow-hidden">
       {/* Background */}
       <div className="absolute top-0 left-0 z-10">
-        <img src="/images/bg.png" alt="Background" loading="eager" />
+        <img src="/images/bg.webp" alt="Background" loading="eager" />
       </div>
       <div className="hero-layout">
         {/* Left:Hero Content*/}
@@ -55,7 +55,7 @@ const Hero = () => {
                           src={word.imgPath}
                           alt={word.text}
                           className="xl:size-12 md:size-10 size-7 md:p-2 p-1 rounded-full bg-white-50"
-                          loading="lazy"
+                          loading="eager"
                         />
                         <span>{word.text}</span>
                       </span>

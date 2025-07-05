@@ -14,6 +14,7 @@ const HeroExperience = () => {
       <OrbitControls
         enablePan={false}
         enableZoom={!isTablet || !isMobile}
+        enableRotate={!isMobile} // Disable rotate on mobile for smoother performance
         maxDistance={20}
         minDistance={5}
         minPolarAngle={Math.PI / 5}
@@ -22,11 +23,12 @@ const HeroExperience = () => {
         maxAzimuthAngle={Math.PI / 3}
       />
       <HeroLights />
-      <Particles count={100} />
+      <Particles count={50} />
       <group
         scale={isMobile ? 0.8 : 1.2}
         position={[0, -3.5, 0]}
         rotation={[0, -1, 0]}
+        userData={{ willChange: "transform" }}
       >
         <Room />
       </group>

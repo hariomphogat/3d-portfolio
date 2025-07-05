@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { navLinks } from "../constants/index";
 import ExportPdf from "./ExportPdf";
 
+
 const Navbar = () => {
   // State to track if the navbar is scrolled
   const [scrolled, setScrolled] = useState(false);
@@ -14,7 +15,7 @@ const Navbar = () => {
       setScrolled(isScrolled);
     };
     // Add scroll event listener
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     // Cleanup function to remove the event listener
     return () => {
       window.removeEventListener("scroll", handleScroll);
@@ -31,7 +32,7 @@ const Navbar = () => {
           >
             <span>
               <img
-                src="/icons/apple-touch-icon.png"
+                src="/icons/apple-touch-icon.webp"
                 alt="HP"
                 className="h-8 w-8 rounded-full object-cover"
               />

@@ -10,7 +10,7 @@ const Footer = () => {
         <div className="flex flex-col justify-between items-center md:items-start gap-4 ">
           <div className="flex flex-row justify-center items-center">
             <img
-              src="/images/hpwhitelogo.png"
+              src="/images/hpwhitelogo.webp"
               alt="logo"
               className="h-20 w-auto"
             />

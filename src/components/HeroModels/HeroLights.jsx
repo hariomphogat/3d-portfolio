@@ -1,6 +1,5 @@
-import { Point } from "@react-three/drei";
 import React from "react";
-import * as THREE from "three";
+import { RectAreaLight } from "three";
 
 const HeroLights = () => {
   return (
@@ -29,7 +28,7 @@ const HeroLights = () => {
       />
 
       <primitive
-        object={new THREE.RectAreaLight("#A259FF", 8, 3, 2)}
+        object={new RectAreaLight("#A259FF", 8, 3, 2)}
         position={[1, 3, 4]}
         intensity={15}
         rotation={[-Math.PI / 4, Math.PI / 4, 0]}

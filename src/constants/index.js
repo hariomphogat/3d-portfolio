@@ -33,115 +33,182 @@ const counterItems = [
 
 const logoIconsList = [
   {
-    imgPath: "/images/logos/nextjs.png",
+    imgPath: "/images/logos/nextjs.webp",
+    name: "Next.js logo",
+    width: "197px",
   },
   {
-    imgPath: "/images/logos/express.png",
+    imgPath: "/images/logos/express.webp",
+    name: "Express.js logo",
+    width: "125px",
   },
   {
-    imgPath: "/images/logos/mongodb.png",
+    imgPath: "/images/logos/mongodb.webp",
+    name: "MongoDB logo",
+    width: "111px",
   },
   {
-    imgPath: "/images/logos/vercel.png",
+    imgPath: "/images/logos/vercel.webp",
+    name: "Vercel logo",
+    width: "140px",
   },
   {
-    imgPath: "/images/logos/react.png",
+    imgPath: "/images/logos/react.webp",
+    name: "React.js logo",
+    width: "98px",
   },
   {
-    imgPath: "/images/logos/docker.png",
+    imgPath: "/images/logos/docker.webp",
+    name: "Docker logo",
+    width: "145px",
   },
   {
-    imgPath: "/images/logos/git.png",
+    imgPath: "/images/logos/git.webp",
+    name: "Git logo",
+    width: "77px",
   },
   {
-    imgPath: "/images/logos/gsap.png",
+    imgPath: "/images/logos/gsap.webp",
+    name: "GSAP logo",
+    width: "90px",
   },
   {
-    imgPath: "/images/logos/clerk.png",
+    imgPath: "/images/logos/clerk.webp",
+    name: "Clerk logo",
+    width: "110px",
   },
   {
-    imgPath: "/images/logos/mysql.png",
+    imgPath: "/images/logos/mysql.webp",
+    name: "MySQL logo",
+    width: "62px",
   },
   {
-    imgPath: "/images/logos/openai.png",
+    imgPath: "/images/logos/openai.webp",
+    name: "OpenAI logo",
+    width: "118px",
   },
   {
-    imgPath: "/images/logos/typescript.png",
+    imgPath: "/images/logos/typescript.webp",
+    name: "TypeScript logo",
+    width: "144px",
   },
   {
-    imgPath: "/images/logos/threejs.png",
+    imgPath: "/images/logos/threejs.webp",
+    name: "Three.js logo",
+    width: "74px",
   },
   {
-    imgPath: "/images/logos/figma.png",
+    imgPath: "/images/logos/figma.webp",
+    name: "Figma logo",
+    width: "67px",
   },
   {
-    imgPath: "/images/logos/javascript.png",
+    imgPath: "/images/logos/javascript.webp",
+    name: "JavaScript logo",
+    width: "167px",
   },
   {
-    imgPath: "/images/logos/postgresql.png",
+    imgPath: "/images/logos/postgresql.webp",
+    name: "PostgreSQL logo",
+    width: "102px",
   },
   {
-    imgPath: "/images/logos/tailwindcss.png",
+    imgPath: "/images/logos/tailwindcss.webp",
+    name: "Tailwind CSS logo",
+    width: "111px",
   },
   {
-    imgPath: "/images/logos/python.png",
+    imgPath: "/images/logos/python.webp",
+    name: "Python logo",
+    width: "110px",
   },
   {
-    imgPath: "/images/logos/nodejs.png",
+    imgPath: "/images/logos/nodejs.webp",
+    name: "Node.js logo",
+    width: "102px",
   },
   {
-    imgPath: "/images/logos/adobexd.png",
+    imgPath: "/images/logos/adobexd.webp",
+    name: "Adobe XD logo",
+    width: "135px",
+  },
+  {
+    imgPath: "/images/logos/hostinger.webp",
+    name: "Hostinger logo",
+    width: "160px",
   },
 ];
 
 const abilities = [
   {
-    imgPath: "/images/seo.png",
+    imgPath: "/images/seo.webp",
     title: "Quality Focus",
     desc: "Delivering high-quality results while maintaining attention to every detail.",
   },
   {
-    imgPath: "/images/chat.png",
+    imgPath: "/images/chat.webp",
     title: "Reliable Communication",
     desc: "Keeping you updated at every step to ensure transparency and clarity.",
   },
   {
-    imgPath: "/images/time.png",
+    imgPath: "/images/time.webp",
     title: "On-Time Delivery",
     desc: "Making sure projects are completed on schedule, with quality & attention to detail.",
   },
 ];
 
-const techStackIcons = [
+// const techStackIcons = [
+//   {
+//     name: "React Developer",
+//     modelPath: "/models/react_logo-transformed.glb",
+//     scale: 1,
+//     rotation: [0, 0, 0],
+//   },
+//   {
+//     name: "Python Developer",
+//     modelPath: "/models/python-transformed.glb",
+//     scale: 0.8,
+//     rotation: [0, 0, 0],
+//   },
+//   {
+//     name: "Backend Developer",
+//     modelPath: "/models/node-transformed.glb",
+//     scale: 5,
+//     rotation: [0, -Math.PI / 2, 0],
+//   },
+//   {
+//     name: "Interactive Developer",
+//     modelPath: "/models/three.js-transformed.glb",
+//     scale: 0.05,
+//     rotation: [0, 0, 0],
+//   },
+//   {
+//     name: "Project Manager",
+//     modelPath: "/models/git-svg-transformed.glb",
+//     scale: 0.05,
+//     rotation: [0, -Math.PI / 4, 0],
+//   },
+// ];
+const techStackImages = [
   {
     name: "React Developer",
-    modelPath: "/models/react_logo-transformed.glb",
-    scale: 1,
-    rotation: [0, 0, 0],
+    imgPath: "/images/techimgs/react.png",
   },
   {
     name: "Python Developer",
-    modelPath: "/models/python-transformed.glb",
-    scale: 0.8,
-    rotation: [0, 0, 0],
+    imgPath: "/images/techimgs/python.svg",
   },
   {
     name: "Backend Developer",
-    modelPath: "/models/node-transformed.glb",
-    scale: 5,
-    rotation: [0, -Math.PI / 2, 0],
+    imgPath: "/images/techimgs/node.png",
   },
   {
     name: "Interactive Developer",
-    modelPath: "/models/three.js-transformed.glb",
-    scale: 0.05,
-    rotation: [0, 0, 0],
+    imgPath: "/images/techimgs/three.webp",
   },
   {
     name: "Project Manager",
-    modelPath: "/models/git-svg-transformed.glb",
-    scale: 0.05,
-    rotation: [0, -Math.PI / 4, 0],
+    imgPath: "/images/techimgs/git.svg",
   },
 ];
 
@@ -149,8 +216,7 @@ const eduCards = [
   {
     review:
       "Pursuing this advanced degree pushed my technical and analytical skills to new heights. It has been a transformative journey into modern AI and big data solutions, further enriched by certifications in Web Technologies and Generative AI for Everyday Life.",
-    imgPath: "/images/edu_msc.png",
-    logoPath: "/images/logo_mdu.png",
+    logoPath: "/images/logo_mdu.webp",
     title: "MSc. Computer Science (Data Science & Machine Learning)",
     date: "July 2024 – June 2026 (Expected)",
     address: "Maharshi Dayanand University, Rohtak, India",
@@ -165,8 +231,7 @@ const eduCards = [
   {
     review:
       "Despite visa setbacks, I proactively completed initial coursework and led impactful projects before withdrawing prior to first semester exams. This experience strengthened my skills in mobile and web development, showcased leadership in team projects, and enhanced my adaptability to new tools and frameworks.",
-    imgPath: "/images/conestoga.png",
-    logoPath: "/images/conestoga.png",
+    logoPath: "/images/conestoga.webp",
     title: "Mobile Solutions Development (Coursework)",
     date: "May 2022",
     address: "Conestoga College, Waterloo, Canada (Online)",
@@ -181,8 +246,7 @@ const eduCards = [
   {
     review:
       "This program refined my practical understanding of system-level programming and database management, preparing me for real-world software challenges.",
-    imgPath: "/images/edu_pgdca.png",
-    logoPath: "/images/logo_citc.png",
+    logoPath: "/images/logo_citc.webp",
     title: "PGDCA",
     date: "March 2021 – March 2022",
     address: "CITC – The Hub of IT, Charkhi Dadri, India",
@@ -197,8 +261,7 @@ const eduCards = [
   {
     review:
       "My undergraduate journey laid a solid foundation in core computer science principles and ignited my passion for solving complex problems through code.",
-    imgPath: "/images/edu_bsc.png",
-    logoPath: "/images/logo_mdu.png",
+    logoPath: "/images/logo_mdu.webp",
     title: "BSc. Computer Science",
     date: "2016 – 2020",
     address: "Maharshi Dayanand University, Rohtak, India",
@@ -230,22 +293,22 @@ const expLogos = [
 const socialImgs = [
   {
     name: "insta",
-    imgPath: "/images/insta.png",
+    imgPath: "/images/insta.webp",
     url: "https://www.instagram.com/hariomphogat/",
   },
   {
     name: "x",
-    imgPath: "/images/twitter.png",
+    imgPath: "/images/twitter.webp",
     url: "https://x.com/hariomphogat",
   },
   {
     name: "linkedin",
-    imgPath: "/images/linkedin.png",
+    imgPath: "/images/linkedin.webp",
     url: "https://in.linkedin.com/in/hariomphogat",
   },
   {
     name: "github",
-    imgPath: "/images/github.png",
+    imgPath: "/images/github.webp",
     url: "https://github.com/hariomphogat",
   },
 ];
@@ -258,6 +321,6 @@ export {
   eduCards,
   expLogos,
   socialImgs,
-  techStackIcons,
+  techStackImages,
   navLinks,
 };

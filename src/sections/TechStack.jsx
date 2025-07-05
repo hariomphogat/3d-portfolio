@@ -1,9 +1,8 @@
 import React, { useRef } from "react";
 import TitleHeader from "../components/TitleHeader";
-import { techStackIcons } from "../constants";
+import { techStackImages } from "../constants";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
-import TechIcon from "../components/Models/TechLogos/TechIcon";
 
 const TechStack = () => {
   const cardsRef = useRef([]);
@@ -41,7 +40,7 @@ const TechStack = () => {
         />
 
         <div className="tech-grid">
-          {techStackIcons.map((icon, index) => (
+          {techStackImages.map((icon, index) => (
             <div
               key={icon.name}
               ref={(el) => (cardsRef.current[index] = el)}
@@ -50,7 +49,7 @@ const TechStack = () => {
               <div className="tech-card-animated-bg" />
               <div className="tech-card-content">
                 <div className="tech-icon-wrapper">
-                  <TechIcon model={icon} />
+                  <img src={icon.imgPath} alt={icon.name} loading="lazy" />
                 </div>
 
                 <div className="padding-x w-full">

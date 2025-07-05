@@ -61,10 +61,12 @@ const Showcase = () => {
             >
               <div className="image-wrapper bg-[#f2e3f7] rounded-xl">
                 <img
-                  src="/images/project1.png"
+                  src="/images/project1.webp"
                   alt="codeoverflow"
                   className="w-auto h-full object-center items-center"
                   loading="lazy"
+                  width="1800"
+                  height="760"
                 />
               </div>
               <div className="text-content">
@@ -90,9 +92,11 @@ const Showcase = () => {
               >
                 <div className="image-wrapper bg-[#e9c9a3]">
                   <img
-                    src="/images/project2.png"
+                    src="/images/project2.webp"
                     alt="Threads"
                     loading="lazy"
+                    width="753"
+                    height="450"
                   />
                 </div>
                 <h2>Threads – Clone Project</h2>
@@ -107,9 +111,11 @@ const Showcase = () => {
               >
                 <div className="image-wrapper bg-[#ffe7eb]">
                   <img
-                    src="/images/project3.png"
+                    src="/images/project3.webp"
                     alt="Dashboard"
                     loading="lazy"
+                    width="753"
+                    height="600"
                   />
                 </div>
                 <h2>Modern Admin Dashboard</h2>

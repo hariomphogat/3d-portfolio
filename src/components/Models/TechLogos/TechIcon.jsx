@@ -1,7 +1,7 @@
 import { Environment, Float, OrbitControls, useGLTF } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import React, { useEffect } from "react";
-import * as THREE from "three";
+import { MeshStandardMaterial } from "three";
 
 const TechIcon = ({ model }) => {
   // -loads a '.glb' model(gltf format)
@@ -12,7 +12,7 @@ const TechIcon = ({ model }) => {
       scene.scene.traverse((child) => {
         if (child.isMesh && child.name == "Object_5") {
           // -optionally tweak the material (like setting a white color on specific mesh)
-          child.material = new THREE.MeshStandardMaterial({ color: "white" });
+          child.material = new MeshStandardMaterial({ color: "white" });
         }
       });
     }

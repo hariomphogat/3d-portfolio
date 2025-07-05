@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useImperativeHandle } from "react";
 import { useGLTF } from "@react-three/drei";
-import * as THREE from "three";
+import { Clock, AnimationMixer, LoopRepeat } from "three";
 
 export const Avatar = React.forwardRef((props, ref) => {
   const group = useRef();
@@ -9,17 +9,17 @@ export const Avatar = React.forwardRef((props, ref) => {
   const mixer = useRef();
   const action = useRef();
   const animationKey = "IdleV4.2(maya_head)";
-  const clock = new THREE.Clock();
+  const clock = new Clock();
 
   // Find animation clip
   const animationClip = animations.find((clip) => clip.name === animationKey);
 
   useEffect(() => {
     if (scene && animationClip) {
-      mixer.current = new THREE.AnimationMixer(scene);
+      mixer.current = new AnimationMixer(scene);
       action.current = mixer.current.clipAction(animationClip);
       action.current.clampWhenFinished = true;
-      action.current.loop = THREE.LoopRepeat;
+      action.current.loop = LoopRepeat;
     }
 
     return () => {

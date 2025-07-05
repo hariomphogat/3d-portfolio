@@ -6,6 +6,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
+
 const ContactExperience = () => {
   const avatarRef = useRef();
   const containerRef = useRef();
@@ -13,12 +14,11 @@ const ContactExperience = () => {
   useEffect(() => {
     const trigger = ScrollTrigger.create({
       trigger: containerRef.current,
-      start: "top 150%", // start when top of container is 80% from top of viewport
+      start: "top 150%", // start when top of container is 150% from top of viewport
       end: "bottom 20%", // End when bottom of container is 20% from top
       onEnter: () => {
         avatarRef.current?.playAnimation();
       },
-
       onLeave: () => {
         avatarRef.current?.stopAnimation();
       },
@@ -35,13 +35,27 @@ const ContactExperience = () => {
       },
     });
 
+    // Force a refresh to ensure correct calculations
+    ScrollTrigger.refresh(true);
+
+    // Check after a slight delay to allow layout to stabilize
+    setTimeout(() => {
+      if (trigger.isActive) {
+        avatarRef.current?.playAnimation();
+      }
+    }, 150);
+
     return () => {
       trigger.kill();
     };
   }, []);
 
   return (
-    <div ref={containerRef} className="w-full h-full">
+    <div
+      ref={containerRef}
+      className="w-full h-full"
+      style={{ willChange: "transform, opacity" }}
+    >
       <Canvas
         camera={{ position: [-1, 0.5, 3], fov: 35 }}
         shadows
@@ -100,12 +114,12 @@ const ContactExperience = () => {
 
         <OrbitControls
           enableZoom={false}
-          enablePan={false}
+          enablePan={true}
           minPolarAngle={Math.PI / 3}
           maxPolarAngle={Math.PI / 2}
         />
 
-        <group scale={0.95} position={[0, -0.9, 0]} castShadow>
+        <group scale={3.5} position={[0, -5.6, 0]} castShadow>
           <Avatar ref={avatarRef} />
         </group>
       </Canvas>

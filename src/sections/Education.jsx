@@ -8,20 +8,19 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const Education = () => {
-  // check if the user is on a low-end device
-  const isLowEndDevice = () => {
-    return navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4;
-  };
+// Move this helper outside
+const isLowEndDevice = () => {
+  return navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4;
+};
 
+const Education = () => {
   useGSAP(() => {
-    //Disable all animattions on Low-End Devices
     if (isLowEndDevice()) {
       ScrollTrigger.disable();
       return;
     }
-    // animate left-side cards
-    // Animate only visible cards, staggered
+
+    // Animate each timeline card
     gsap.utils.toArray(".timeline-card").forEach((card) => {
       gsap.from(card, {
         opacity: 0,
@@ -41,7 +40,7 @@ const Education = () => {
       });
     });
 
-    // animate the timeline
+    // Animate the vertical timeline
     gsap.to(".timeline", {
       scaleY: 0,
       transformOrigin: "bottom bottom",
@@ -54,7 +53,7 @@ const Education = () => {
       },
     });
 
-    // animate the EduText
+    // Animate text blocks
     gsap.utils.toArray(".eduText").forEach((text) => {
       gsap.from(text, {
         opacity: 0,
@@ -74,7 +73,12 @@ const Education = () => {
         },
       });
     });
-  });
+
+    // Cleanup ScrollTriggers on unmount
+    return () => {
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
+  }, []);
 
   return (
     <section

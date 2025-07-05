@@ -7,7 +7,7 @@ const LogoIcon = ({ icon }) => {
       <img
         src={icon.imgPath}
         alt={icon.name}
-        className="h-[32px] lg:h-[64px] w-auto"
+        className={`h-[32px] w-${icon.width}`}
         loading="lazy"
       />
     </div>
@@ -22,7 +22,7 @@ const LogoSection = () => {
       <div className="gradient-edge" />
 
       <div className="marquee h-36 lg:h-52">
-        <div className="marquee-box md:gap-12 gap-5">
+        <div className="marquee-box gap-5">
           {extendedIconList.map((icon, index) => (
             <LogoIcon key={`${icon.name}-first-${index}`} icon={icon} />
           ))}
