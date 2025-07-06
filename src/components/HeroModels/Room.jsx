@@ -41,18 +41,20 @@ export function Room(props) {
   const chairMaterial = new MeshPhongMaterial({
     color: "#000",
   });
-
+  const enableBloomEffects = window.innerWidth > 768; // Enable bloom only on larger screens
   return (
     <group {...props} dispose={null}>
-      <EffectComposer>
-        <SelectiveBloom
-          selection={screensRef}
-          intensity={1.5} // Strength of the bloom
-          luminanceThreshold={0.2} // Minimum luminance needed
-          luminanceSmoothing={0.9} // Smooth transition
-          blendFunction={BlendFunction.ADD} // How it blends
-        />
-      </EffectComposer>
+      {enableBloomEffects && (
+        <EffectComposer>
+          <SelectiveBloom
+            selection={screensRef}
+            intensity={1.5}
+            luminanceThreshold={0.2}
+            luminanceSmoothing={0.9}
+            blendFunction={BlendFunction.ADD}
+          />
+        </EffectComposer>
+      )}
       <mesh
         geometry={nodes._________6_blinn1_0.geometry}
         material={curtainMaterial}

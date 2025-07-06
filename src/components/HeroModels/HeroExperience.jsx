@@ -14,7 +14,7 @@ const HeroExperience = () => {
       <OrbitControls
         enablePan={false}
         enableZoom={!isTablet || !isMobile}
-        enableRotate={!isMobile} // Disable rotate on mobile for smoother performance
+        enableRotate={true}
         maxDistance={20}
         minDistance={5}
         minPolarAngle={Math.PI / 5}

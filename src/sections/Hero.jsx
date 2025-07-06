@@ -32,7 +32,13 @@ const Hero = () => {
     <section id="hero" className="relative overflow-hidden">
       {/* Background */}
       <div className="absolute top-0 left-0 z-10">
-        <img src="/images/bg.webp" alt="Background" loading="eager" />
+        <img
+          src="/images/bg.webp"
+          alt="Background"
+          loading="eager"
+          height={327}
+          width={418}
+        />
       </div>
       <div className="hero-layout">
         {/* Left:Hero Content*/}
