@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { navLinks } from "../constants/index";
 import ExportPdf from "./ExportPdf";
 
-
 const Navbar = () => {
   // State to track if the navbar is scrolled
   const [scrolled, setScrolled] = useState(false);
@@ -32,9 +31,11 @@ const Navbar = () => {
           >
             <span>
               <img
-                src="/icons/apple-touch-icon.webp"
-                alt="HP"
+                src="/images/hp-gold-logo.webp"
+                alt="HP logo"
                 className="h-8 w-8 rounded-full object-cover"
+                height={64}
+                width={64}
               />
             </span>
             <span>Hariom Phogat</span>

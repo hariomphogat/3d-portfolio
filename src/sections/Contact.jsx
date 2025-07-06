@@ -145,7 +145,11 @@ const Contact = () => {
           <div className="xl:col-span-7 min-h-96 mx-5 md:mx-30">
             <div className="w-full h-full bg-transparent hover:cursor-grab rounded-3xl overflow-hidden">
               <Suspense
-                fallback={<div className="text-white">Loading 3D model...</div>}
+                fallback={
+                  <div className="text-gray-300 bg-transparent">
+                    Loading 3D model...
+                  </div>
+                }
               >
                 <ContactExperience />
               </Suspense>

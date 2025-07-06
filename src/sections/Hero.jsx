@@ -34,10 +34,11 @@ const Hero = () => {
       <div className="absolute top-0 left-0 z-10">
         <img
           src="/images/bg.webp"
+          srcSet="/images/bg.webp 1x, /images/bg@2x.webp 2x"
           alt="Background"
           loading="eager"
-          height={327}
-          width={418}
+          width="824"
+          height="644"
         />
       </div>
       <div className="hero-layout">

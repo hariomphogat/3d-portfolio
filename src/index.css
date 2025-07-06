@@ -220,7 +220,7 @@ section {
       @apply flex md:flex-row flex-col xl:flex-col gap-10 xl:w-[40%];
 
       .image-wrapper {
-        @apply xl:h-[37vh] md:h-52 md:w-[37vw] lg:w-[41vw] xl:w-full lg:h-72 h-64 relative rounded-xl xl:px-5 2xl:px-12 py-0;
+        @apply xl:h-[37vh] md:h-52 md:w-[37vw] lg:w-[41vw] xl:w-full lg:h-72 h-64 relative rounded-xl xl:px-5 2xl:px-12 py-0 flex justify-center items-center;
       }
 
       img {

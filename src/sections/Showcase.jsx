@@ -59,7 +59,7 @@ const Showcase = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <div className="image-wrapper bg-[#f2e3f7] rounded-xl">
+              <div className="image-wrapper bg-[#f2e3f7] rounded-xl ">
                 <img
                   src="/images/project1.webp"
                   alt="codeoverflow"
@@ -90,11 +90,12 @@ const Showcase = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <div className="image-wrapper bg-[#e9c9a3]">
+                <div className="image-wrapper bg-[#e9c9a3] ">
                   <img
                     src="/images/project2.webp"
                     alt="Threads"
                     loading="lazy"
+                    className="w-auto h-full object-center items-center"
                     width="753"
                     height="450"
                   />
@@ -109,11 +110,12 @@ const Showcase = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <div className="image-wrapper bg-[#ffe7eb]">
+                <div className="image-wrapper bg-[#ffe7eb] ">
                   <img
                     src="/images/project3.webp"
                     alt="Dashboard"
                     loading="lazy"
+                    className="w-auto h-full object-center items-center"
                     width="753"
                     height="600"
                   />

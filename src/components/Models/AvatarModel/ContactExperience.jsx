@@ -14,7 +14,7 @@ const ContactExperience = () => {
   useEffect(() => {
     const trigger = ScrollTrigger.create({
       trigger: containerRef.current,
-      start: "top 150%", // start when top of container is 150% from top of viewport
+      start: "top 100%", // start when top of container is 150% from top of viewport
       end: "bottom 20%", // End when bottom of container is 20% from top
       onEnter: () => {
         avatarRef.current?.playAnimation();

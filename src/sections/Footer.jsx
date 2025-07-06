@@ -13,6 +13,9 @@ const Footer = () => {
               src="/images/hpwhitelogo.webp"
               alt="logo"
               className="h-20 w-auto"
+              width={341}
+              height={268}
+              loading="lazy"
             />
             <h1
               style={{ fontFamily: '"Baskervville SC", serif' }}

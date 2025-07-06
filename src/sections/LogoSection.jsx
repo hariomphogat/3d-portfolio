@@ -9,6 +9,8 @@ const LogoIcon = ({ icon }) => {
         alt={icon.name}
         className={`h-[32px] w-${icon.width}`}
         loading="lazy"
+        width={icon.width}
+        height={icon.height}
       />
     </div>
   );
