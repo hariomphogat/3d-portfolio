@@ -15,13 +15,11 @@ const Hero = () => {
     gsap.fromTo(
       heroTextRef.current.querySelectorAll("h1"),
       {
-        y: 50,
         opacity: 0,
       },
       {
-        y: 0,
         opacity: 1,
-        stagger: 1.3,
+        stagger: 0.8,
         duration: 1,
         ease: "power2.out",
       }

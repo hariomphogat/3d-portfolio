@@ -9,19 +9,22 @@ import TechStack from "./sections/TechStack";
 import Contact from "./sections/Contact";
 import Footer from "./sections/Footer";
 import "./index.css";
+import { DeviceProvider } from "./context/DeviceProvider";
 
 const App = () => {
   return (
     <>
-      <Navbar />
-      <Hero />
-      <Showcase />
-      <FeatureCards />
-      <Education />
-      <TechStack />
-      <LogoSection />
-      <Contact />
-      <Footer />
+      <DeviceProvider>
+        <Navbar />
+        <Hero />
+        <Showcase />
+        <FeatureCards />
+        <Education />
+        <TechStack />
+        <LogoSection />
+        <Contact />
+        <Footer />
+      </DeviceProvider>
     </>
   );
 };

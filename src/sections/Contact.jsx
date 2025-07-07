@@ -40,8 +40,8 @@ const Contact = () => {
       setFormData({ name: "", email: "", message: "" });
       setSuccess("Message sent successfully ✅");
     } catch (error) {
-      console.error("EmailJS ERROR:", error);
       setSuccess("Oops! Something went wrong. Please try again.");
+      throw error("EmailJS ERROR:", error);
     } finally {
       setLoading(false);
     }

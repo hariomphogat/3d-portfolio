@@ -5,79 +5,77 @@ import GlowCard from "../components/GlowCard";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useDeviceContext } from "../context/useDeviceContext";
 
 gsap.registerPlugin(ScrollTrigger);
 
-// Move this helper outside
-const isLowEndDevice = () => {
-  return navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4;
-};
-
 const Education = () => {
+  // fetch the context value to check if the device can render heavy animations
+  const { canRenderHeavy, isChecking } = useDeviceContext();
+ 
+
   useGSAP(() => {
-    if (isLowEndDevice()) {
-      ScrollTrigger.disable();
+    if (isChecking || !canRenderHeavy) {
       return;
     }
 
     // Animate each timeline card
-    gsap.utils.toArray(".timeline-card").forEach((card) => {
-      gsap.from(card, {
-        opacity: 0,
-        x: -50,
-        duration: 0.6,
-        ease: "power2.out",
-        force3D: true,
-        delay: 0.8,
-        scrollTrigger: {
-          trigger: card,
-          start: "top 80%",
-          onEnter: () => (card.style.willChange = "transform, opacity"),
-          onLeave: () => (card.style.willChange = "auto"),
-          onLeaveBack: () => (card.style.willChange = "auto"),
-          onEnterBack: () => (card.style.willChange = "auto"),
-        },
+    canRenderHeavy &&
+      gsap.utils.toArray(".timeline-card").forEach((card) => {
+        gsap.from(card, {
+          opacity: 0,
+          duration: 0.6,
+          delay: 0.4,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: card,
+            start: "top 80%",
+            onEnter: () => (card.style.willChange = " opacity"),
+            onLeave: () => (card.style.willChange = "auto"),
+            onLeaveBack: () => (card.style.willChange = "auto"),
+            onEnterBack: () => (card.style.willChange = "auto"),
+          },
+        });
       });
-    });
 
     // Animate the vertical timeline
-    gsap.to(".timeline", {
-      scaleY: 0,
-      transformOrigin: "bottom bottom",
-      ease: "none",
-      scrollTrigger: {
-        trigger: ".timeline-wrapper",
-        start: "top 90%",
-        end: "bottom top+=200",
-        scrub: true,
-      },
-    });
-
-    // Animate text blocks
-    gsap.utils.toArray(".eduText").forEach((text) => {
-      gsap.from(text, {
-        opacity: 0,
-        duration: 0.5,
-        ease: "power2.inOut",
-        delay: 0.2,
-        force3D: true,
+    canRenderHeavy &&
+      gsap.to(".timeline", {
+        scaleY: 0,
+        transformOrigin: "bottom bottom",
+        ease: "none",
         scrollTrigger: {
-          trigger: text,
+          trigger: ".timeline-wrapper",
           start: "top 90%",
-          toggleActions: "play none none none",
-          onEnter: () => (text.style.willChange = "opacity"),
-          onLeave: () => (text.style.willChange = "auto"),
-          onLeaveBack: () => (text.style.willChange = "auto"),
-          onEnterBack: () => (text.style.willChange = "auto"),
+          end: "bottom top+=200",
+          scrub: true,
         },
       });
-    });
+
+    // Animate text blocks
+    // canRenderHeavy &&
+    //   gsap.utils.toArray(".eduText").forEach((text) => {
+    //     gsap.from(text, {
+    //       opacity: 0,
+    //       duration: 0.8,
+    //       ease: "power2.inOut",
+    //       scrollTrigger: {
+    //         trigger: text,
+    //         start: "top 90%",
+    //         toggleActions: "play none none none",
+    //         onEnter: () => (text.style.willChange = "opacity"),
+    //         onLeave: () => (text.style.willChange = "auto"),
+    //         onLeaveBack: () => (text.style.willChange = "auto"),
+    //         onEnterBack: () => (text.style.willChange = "auto"),
+    //       },
+    //     });
+    //   });
 
     // Cleanup ScrollTriggers on unmount
     return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+      ScrollTrigger.getAll()?.forEach((trigger) => trigger.kill());
     };
-  }, []);
+  }, [canRenderHeavy]);
 
   return (
     <section
@@ -99,7 +97,7 @@ const Education = () => {
                 <div className="xl:w-4/6">
                   <div className="flex items-start">
                     <div className="timeline-wrapper">
-                      <div className="timeline" />
+                      {canRenderHeavy && <div className="timeline" />}
                       <div className="gradient-line w-1 h-full" />
                     </div>
                     <div className="eduText flex xl:gap-20 md:gap-10 gap-5 relative z-20">

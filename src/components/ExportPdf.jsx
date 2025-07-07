@@ -11,8 +11,8 @@ const ExportPdf = () => {
   return (
     <>
       <a
-        href="/hariom_phogat_resume.pdf"
-        download="hariom_phogat_resume.pdf"
+        href="/hariom_resume.pdf"
+        download="hariom_resume.pdf"
         rel="noopener noreferrer"
         onMouseEnter={() => setVisible(true)}
         onMouseLeave={() => setVisible(false)}

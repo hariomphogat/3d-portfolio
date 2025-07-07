@@ -2,12 +2,14 @@ import React, { useRef, useCallback } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+import { useDeviceContext } from "../context/useDeviceContext";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Showcase = () => {
   const sectionRef = useRef(null);
   const projectRefs = useRef([]);
+  const { canRenderHeavy, isChecking } = useDeviceContext();
 
   // UseCallback so function reference remains stable
   const addToRefs = useCallback((el) => {
@@ -17,36 +19,42 @@ const Showcase = () => {
   }, []);
 
   useGSAP(() => {
+    if (isChecking || !canRenderHeavy) {
+      return;
+    }
     // Section fade-in
-    gsap.fromTo(
-      sectionRef.current,
-      { opacity: 0 },
-      { opacity: 1, duration: 1.5, ease: "power2.inOut" }
-    );
+    canRenderHeavy &&
+      gsap.fromTo(
+        sectionRef.current,
+        { opacity: 0 },
+        { opacity: 1, duration: 1.5, ease: "power2.inOut" }
+      );
 
     // Animate each project card on scroll
-    projectRefs.current.forEach((card, index) => {
-      gsap.fromTo(
-        card,
-        { opacity: 0, y: 50 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.8,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: card,
-            start: "top 90%",
-            toggleActions: "play none none none",
-            id: `project-${index}`,
-            once: true, // Only animate once
-          },
-        }
-      );
-    });
-    // Ensure positions are recalculated if layout changes after mount
-    ScrollTrigger.refresh();
-  }, []);
+    canRenderHeavy &&
+      projectRefs.current.forEach((card, index) => {
+        gsap.fromTo(
+          card,
+          { opacity: 0 },
+          {
+            opacity: 1,
+            duration: 1,
+            delay: index * 0.2, // Staggered delay for each card
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: card,
+              start: "top 90%",
+              id: `project-${index}`,
+              toggleActions: "play none none none",
+            },
+          }
+        );
+      });
+    // Cleanup ScrollTriggers on unmount
+    return () => {
+      ScrollTrigger.getAll()?.forEach((trigger) => trigger.kill());
+    };
+  }, [canRenderHeavy]);
 
   return (
     <div id="work" ref={sectionRef} className="app-showcase">
