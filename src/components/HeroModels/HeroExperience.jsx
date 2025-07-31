@@ -14,7 +14,7 @@ const HeroExperience = () => {
       <ambientLight intensity={0.001} />
       <OrbitControls
         enablePan={false}
-        enableZoom={!isTablet || !isMobile}
+        enableZoom={!isTablet}
         enableRotate={true}
         maxDistance={20}
         minDistance={5}

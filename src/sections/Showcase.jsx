@@ -61,7 +61,7 @@ const Showcase = () => {
       <div className="w-full">
         <div className="showcaselayout">
           {/* Left */}
-          <div ref={addToRefs} className="first-project-wrapper ">
+          <div ref={addToRefs} className="first-project-wrapper">
             <a
               href="https://codeoverflow-rose.vercel.app/"
               target="_blank"
@@ -80,7 +80,17 @@ const Showcase = () => {
               <div className="text-content">
                 <h2>
                   CodeOverflow - A One-Stop Platform for Developer Q&A,
-                  Portfolios, and Job Discovery
+                  Portfolios, & Job Discovery
+                  <span className="inline-block ml-2 ">
+                    <img
+                      src="/images/elinkgrad.webp"
+                      alt="hyperlink"
+                      className="w-auto h-[32px] object-bottom items-baseline"
+                      loading="lazy"
+                      width="64"
+                      height="64"
+                    />
+                  </span>
                 </h2>
                 <p className="text-white-50 md:text-xl">
                   A web app built with Next.js, TypeScript, MongoDB, Clerk, &
@@ -108,7 +118,19 @@ const Showcase = () => {
                     height="450"
                   />
                 </div>
-                <h2>Threads – Clone Project</h2>
+                <h2>
+                  Threads – Clone Project
+                  <span className="inline-block ml-2 ">
+                    <img
+                      src="/images/elinkgrad.webp"
+                      alt="hyperlink"
+                      className="w-auto h-[32px] object-bottom items-baseline"
+                      loading="lazy"
+                      width="64"
+                      height="64"
+                    />
+                  </span>
+                </h2>
               </a>
             </div>
 
@@ -128,7 +150,19 @@ const Showcase = () => {
                     height="600"
                   />
                 </div>
-                <h2>Modern Admin Dashboard</h2>
+                <h2>
+                  Modern Admin Dashboard
+                  <span className="inline-block ml-2">
+                    <img
+                      src="/images/elinkgrad.webp"
+                      alt="hyperlink"
+                      className="w-auto h-[32px] object-bottom items-baseline"
+                      loading="lazy"
+                      width="64"
+                      height="64"
+                    />
+                  </span>
+                </h2>
               </a>
             </div>
           </div>
